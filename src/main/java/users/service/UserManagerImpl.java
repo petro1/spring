@@ -20,20 +20,23 @@ public class UserManagerImpl implements UserManager {
 	public UserManagerImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
-
+        
+        @Override
 	public boolean addEntity(User user) throws Exception {
 		entityManager.persist(user);
 		return false;
 	}
-
+        @Override
 	public User getEntityById(long id) throws Exception {
 		return entityManager.find(User.class, id);
 	}
-
+	
+        @Override
 	public List<User> getEntityList() throws Exception {
 		return entityManager.createQuery("from User").getResultList();
 	}
-
+	
+        @Override
 	public boolean deleteEntity(User user) throws Exception {
 		if (entityManager.contains(user)) {
 			entityManager.remove(user);
@@ -42,6 +45,7 @@ public class UserManagerImpl implements UserManager {
 		return false;
 	}
 
+        @Override
 	public void update(User user) throws Exception {
 		entityManager.merge(user);
 		return;	
