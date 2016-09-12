@@ -19,6 +19,7 @@ import static org.mockito.Mockito.verify;
 
 import users.models.User;
 import users.service.UserManager;
+import users.service.UserManagerImpl;
 
 @RunWith(MockitoJUnitRunner.class)
 public class UserManagerImplTest {
@@ -30,7 +31,7 @@ public class UserManagerImplTest {
 	@Before
 	public void setUp() {
 		entityManager = mock(EntityManager.class);
-		userManager = mock(UserManager.class);
+		userManager = new UserManagerImpl(entityManager);
 		mockedQuery = mock(Query.class);
 	}
 	
