@@ -11,6 +11,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.0.RELEASE</version>
+		<relativePath />
 	</parent>
   	<dependencies>
 		<dependency>
@@ -36,8 +37,9 @@
 		</dependency>
 	</dependencies>
 	<properties>
+		
+		<start-class>users.Application</start-class>
 		<java.version>1.7</java.version>
-		<start-class>calls.Application</start-class>
 	</properties>
 
 
